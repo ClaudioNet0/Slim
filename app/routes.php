@@ -9,6 +9,12 @@ $app->group('/admin', function() {
 
 	//POSTS
 	$this->get('/posts', 'App\Action\Admin\PostAction:index');
+	$this->get('/posts/{id}/view', 'App\Action\Admin\PostAction:view');  
+	$this->get('/posts/add', 'App\Action\Admin\PostAction:add');
+	$this->post('/posts/add', 'App\Action\Admin\PostAction:store');
+	$this->get('/posts/{id}/edit', 'App\Action\Admin\PostAction:edit');  
+	$this->post('/posts/{id}/edit', 'App\Action\Admin\PostAction:update');
+	$this->get('/posts/{id}/del', 'App\Action\Admin\PostAction:del');  
 })->add(App\Middleware\Admin\AuthMiddleware::class);
 
 
